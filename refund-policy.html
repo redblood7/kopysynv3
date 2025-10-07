@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - Kopysynk Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">Kopysynk Consulting</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart"><i class="fas fa-shopping-cart"></i></a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">Refund Policy</h1>
+        </section>
+
+        <section class="content-section article-content">
+            <h2 class="subsection-title">Our Commitment to Your Satisfaction</h2>
+            <p>At Kopysynk Consulting, we are committed to providing high-quality, effective training to all our customers. We stand behind the value of our courses and are confident that you will be satisfied with your learning experience. However, we understand that sometimes a course may not be the right fit.</p>
+            
+            <h2 class="subsection-title">Eligibility for a Refund</h2>
+            <p>To be eligible for a refund, you must meet the following criteria:</p>
+            <ul>
+                <li>You must request a refund within **14 days** of your purchase date.</li>
+                <li>You must not have completed more than **25%** of the course content. Course completion is tracked through our learning platform.</li>
+                <li>You must have a valid reason for the refund request, such as the course not meeting the description or having technical issues that we are unable to resolve.</li>
+            </ul>
+
+            <h2 class="subsection-title">How to Request a Refund</h2>
+            <p>To request a refund, please contact our support team at <a href="mailto:support@kopysynk.com">support@kopysynk.com</a> with the following information:</p>
+            <ul>
+                <li>Your full name and the email address used for purchase.</li>
+                <li>The name of the course you wish to refund.</li>
+                <li>The reason for your refund request.</li>
+            </ul>
+            <p>Our team will review your request and get back to you within 3-5 business days. If your refund is approved, it will be processed, and a credit will automatically be applied to your original method of payment within 10 business days.</p>
+
+            <h2 class="subsection-title">Non-Refundable Circumstances</h2>
+            <p>Please note that we cannot issue refunds under the following circumstances:</p>
+            <ul>
+                <li>The refund request is made more than 14 days after the purchase date.</li>
+                <li>You have completed more than 25% of the course.</li>
+                <li>You have been found to have violated our terms of service or engaged in any form of academic dishonesty.</li>
+            </ul>
+
+            <h2 class="subsection-title">Contact Us</h2>
+            <p>If you have any questions about our refund policy, please do not hesitate to <a href="contact.html">contact us</a>.</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

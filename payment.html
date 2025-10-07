@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Kopysynk Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">Kopysynk Consulting</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span id="wallet-balance-header">₹0.00</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">Checkout</h1>
+        </section>
+
+        <section class="content-section payment-section">
+            <div class="payment-container">
+                <div class="payment-methods">
+                    <button class="payment-method-tab active" data-method="card">Credit/Debit Card</button>
+                    <button class="payment-method-tab" data-method="upi">UPI</button>
+                    <button class="payment-method-tab" data-method="netbanking">Netbanking</button>
+                </div>
+
+                <div id="card-payment" class="payment-method-content active">
+                    <h2 class="subsection-title">Pay with Card</h2>
+                    <form id="card-payment-form" class="payment-form" action="payment-successful.html">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-holder">Cardholder Name</label>
+                            <input type="text" id="card-holder" placeholder="John Doe" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Pay Now</button>
+                    </form>
+                </div>
+
+                <div id="upi-payment" class="payment-method-content">
+                    <h2 class="subsection-title">Pay with UPI</h2>
+                    <div class="upi-content">
+                        <p>Click on an icon to generate the QR code.</p>
+                        <div class="upi-options">
+                            <div class="upi-option">
+                                <h3 class="upi-payment-button" data-upi-id="upi://pay?pa=kopysynk2@idfcbank&pn=Kopysynk%20Consulting">
+                                    <i class="fab fa-google-pay"></i> Google Pay
+                                </h3>
+                            </div>
+                            <div class="upi-option">
+                                <h3 class="upi-payment-button" data-upi-id="upi://pay?pa=8124826278@ptyes&pn=Kopysynk%20Consulting">
+                                    <i class="fas fa-wallet"></i> Paytm
+                                </h3>
+                            </div>
+                        </div>
+                        <div id="qr-timer-container" class="qr-timer-container"></div>
+                        <div id="qr-code-display" class="qr-code-container"></div>
+                        <div id="upi-confirmation-button" style="text-align: center; margin-top: 2rem; display: none;">
+                            <a href="payment-successful.html" class="btn btn-primary">I have completed the payment</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="netbanking-payment" class="payment-method-content">
+                    <h2 class="subsection-title">Pay with Netbanking</h2>
+                    <div class="netbanking-content">
+                        <p>Select your bank from the list below:</p>
+                        <div class="form-group">
+                            <select id="bank-select" class="bank-list">
+                                <option value="">Select Bank</option>
+                                <option value="bank1">Bank of Example</option>
+                                <option value="bank2">Federal Bank of Demo</option>
+                                <option value="bank3">State Bank of Test</option>
+                                <option value="bank4">Demo Bank</option>
+                                <option value="bank5">Test National Bank</option>
+                            </select>
+                        </div>
+                        <a href="payment-successful.html" class="btn btn-primary">Proceed to Bank</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

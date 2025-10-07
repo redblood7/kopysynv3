@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Kopysynk Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Kopysynk Consulting Logo">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span id="wallet-balance-header">₹0.00</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="login-button" aria-label="Login">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">About Kopysynk Consulting</h1>
+        </section>
+
+        <section class="content-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="subsection-title">Our Mission</h2>
+                    <p>To empower businesses and individuals with the skills and knowledge to succeed in the digital age. We provide expert-led training in IT project management, data analytics, and product management, tailored to meet the demands of today's fast-paced industries.</p>
+                    <h2 class="subsection-title">Our Story</h2>
+                    <p>Founded by a team of passionate IT professionals, Kopysynk Consulting was born from a desire to bridge the gap between technical expertise and business acumen. We believe that with the right training, anyone can learn to manage complex projects, leverage data for strategic decision-making, and build products that customers love.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Our team in a meeting">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

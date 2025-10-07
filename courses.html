@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Kopysynk Consulting</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Kopysynk Consulting Logo">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span id="wallet-balance-header">₹0.00</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="login-button" aria-label="Login">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">Our Courses</h1>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">IT & Technology Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="Cloud Computing" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Introduction to Cloud Computing</h3>
+                        <p>Learn cloud fundamentals, deployment models, and hands-on exercises with AWS, Azure, or Google Cloud.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹100</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="1" data-course-name="Introduction to Cloud Computing" data-course-price="100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data Analytics" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Data Analytics & Visualization with Excel and Power BI</h3>
+                        <p>Transform raw data into actionable insights using Excel, Power BI, and visualization techniques.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹200</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="2" data-course-name="Data Analytics & Visualization with Excel and Power BI" data-course-price="200">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4133d5a3ca46?q=80&w=2070&auto=format&fit=crop" alt="Cybersecurity" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Cybersecurity Fundamentals</h3>
+                        <p>Learn how to protect systems, data, and networks from cyber threats.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹300</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="3" data-course-name="Cybersecurity Fundamentals" data-course-price="300">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Agile & Scrum" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Agile & Scrum for IT Projects</h3>
+                        <p>Master Agile methodologies, Scrum ceremonies, and project management best practices.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹500</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="4" data-course-name="Agile & Scrum for IT Projects" data-course-price="500">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=2070&auto=format&fit=crop" alt="Python Programming" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Introduction to Python Programming</h3>
+                        <p>Learn the fundamentals of Python, a versatile and powerful programming language.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹1000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="5" data-course-name="Introduction to Python Programming" data-course-price="1000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" alt="Web Development" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Web Development Fundamentals</h3>
+                        <p>Master the basics of web development with HTML, CSS, and JavaScript.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹2000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="6" data-course-name="Web Development Fundamentals" data-course-price="2000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop" alt="Advanced JavaScript" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Advanced JavaScript and ES6</h3>
+                        <p>Deep dive into modern JavaScript concepts, including ES6+ features.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹3000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="7" data-course-name="Advanced JavaScript and ES6" data-course-price="3000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop" alt="DevOps" class="course-image">
+                    <div class="course-card-content">
+                        <h3>DevOps for Beginners</h3>
+                        <p>Learn the principles of DevOps and how to implement them in your organization.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹5000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="8" data-course-name="DevOps for Beginners" data-course-price="5000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1555952494-033c46924b10?q=80&w=2070&auto=format&fit=crop" alt="Machine Learning" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Introduction to Machine Learning</h3>
+                        <p>Explore the exciting world of machine learning and its applications.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹10000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="9" data-course-name="Introduction to Machine Learning" data-course-price="10000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1507721999472-8ed4421b93de?q=80&w=2070&auto=format&fit=crop" alt="SQL for Data Science" class="course-image">
+                    <div class="course-card-content">
+                        <h3>SQL for Data Science</h3>
+                        <p>Master SQL for data analysis and manipulation in data science contexts.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹20000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="10" data-course-name="SQL for Data Science" data-course-price="20000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">Product Management Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2134&auto=format&fit=crop" alt="Product Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Product Management 101: From Idea to Launch</h3>
+                        <p>Learn the product lifecycle, market research, roadmap planning, and launching products successfully.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹30000</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="11" data-course-name="Product Management 101: From Idea to Launch" data-course-price="30000">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop" alt="UX Design" class="course-image">
+                    <div class="course-card-content">
+                        <h3>User Experience (UX) and Design Thinking</h3>
+                        <p>Explore user-centered design principles to build products your customers love.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹6999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="12" data-course-name="User Experience (UX) and Design Thinking" data-course-price="6999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Product Analytics" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Product Metrics and Analytics</h3>
+                        <p>Understand KPIs, product performance measurement, and data-driven decision making.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹4999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="13" data-course-name="Product Metrics and Analytics" data-course-price="4999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Technical Product Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Technical Product Management</h3>
+                        <p>Bridge the gap between technical teams and business stakeholders.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹7999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="14" data-course-name="Technical Product Management" data-course-price="7999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=2070&auto=format&fit=crop" alt="SaaS Product Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>SaaS Product Management</h3>
+                        <p>Learn the unique challenges and opportunities of managing SaaS products.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹8999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="15" data-course-name="SaaS Product Management" data-course-price="8999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Product Leadership" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Product Leadership</h3>
+                        <p>Develop the skills to lead and inspire product teams to success.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹9999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="16" data-course-name="Product Leadership" data-course-price="9999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="subsection-title">Business Analysis & Soft Skills</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop" alt="Business Analysis" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Business Analysis Fundamentals</h3>
+                        <p>Learn requirement gathering, stakeholder management, and creating functional specifications.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹4999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="17" data-course-name="Business Analysis Fundamentals" data-course-price="4999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1611095965933-5a0a9a3a8b6e?q=80&w=2070&auto=format&fit=crop" alt="Advanced Excel" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Advanced Excel for Business Analysts</h3>
+                        <p>Excel formulas, pivot tables, and dashboards for efficient analysis and reporting.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹5999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="18" data-course-name="Advanced Excel for Business Analysts" data-course-price="5999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" alt="Communication Skills" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Communication & Stakeholder Management</h3>
+                        <p>Enhance presentation, negotiation, and communication skills for IT and business projects.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹3999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="19" data-course-name="Communication & Stakeholder Management" data-course-price="3999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop" alt="Advanced Business Analysis" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Advanced Business Analysis</h3>
+                        <p>Take your business analysis skills to the next level with advanced techniques.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹6999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="20" data-course-name="Advanced Business Analysis" data-course-price="6999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Change Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Change Management for Professionals</h3>
+                        <p>Learn how to effectively manage change within an organization.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹5999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="21" data-course-name="Change Management for Professionals" data-course-price="5999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2070&auto=format&fit=crop" alt="Critical Thinking" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Critical Thinking and Problem Solving</h3>
+                        <p>Develop your critical thinking and problem-solving skills for complex challenges.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹4999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="22" data-course-name="Critical Thinking and Problem Solving" data-course-price="4999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">Digital Marketing</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2070&auto=format&fit=crop" alt="SEO and SEM" class="course-image">
+                    <div class="course-card-content">
+                        <h3>SEO and SEM Strategies</h3>
+                        <p>Master search engine optimization and marketing to drive traffic and conversions.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹5999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="23" data-course-name="SEO and SEM Strategies" data-course-price="5999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1611162616805-4d7339678e7f?q=80&w=2070&auto=format&fit=crop" alt="Social Media Marketing" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Social Media Marketing</h3>
+                        <p>Learn how to create and execute effective social media marketing campaigns.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹4999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="24" data-course-name="Social Media Marketing" data-course-price="4999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=2070&auto=format&fit=crop" alt="Content Marketing" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Content Marketing and Analytics</h3>
+                        <p>Create compelling content and measure its impact with data and analytics.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹5999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="25" data-course-name="Content Marketing and Analytics" data-course-price="5999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1589395937658-05c7563ba463?q=80&w=2070&auto=format&fit=crop" alt="Email Marketing" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Email Marketing and Automation</h3>
+                        <p>Master email marketing and automation to nurture leads and engage customers.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹4999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="26" data-course-name="Email Marketing and Automation" data-course-price="4999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="subsection-title">Business Strategy</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Strategic Management" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Strategic Management</h3>
+                        <p>Learn the frameworks and principles of strategic management.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹7999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="27" data-course-name="Strategic Management" data-course-price="7999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Corporate Finance" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Corporate Finance Essentials</h3>
+                        <p>Understand the core concepts of corporate finance.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹8999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="28" data-course-name="Corporate Finance Essentials" data-course-price="8999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Business Model Innovation" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Business Model Innovation</h3>
+                        <p>Learn how to design and innovate business models for a competitive advantage.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹9999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="29" data-course-name="Business Model Innovation" data-course-price="9999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Competitive Strategy" class="course-image">
+                    <div class="course-card-content">
+                        <h3>Competitive Strategy</h3>
+                        <p>Learn how to analyze industries and develop a competitive strategy.</p>
+                        <div class="course-card-footer">
+                            <span class="course-card-price">₹8999</span>
+                            <a href="#" class="btn btn-secondary add-to-cart" data-course-id="30" data-course-name="Competitive Strategy" data-course-price="8999">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

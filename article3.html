@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Agile Methodologies - Kopysynk Consulting</title>
+    <meta name="description" content="Explore key principles, frameworks, and best practices to master Agile methodologies for efficient and adaptive project management. Learn how Agile can transform your team's productivity and collaboration.">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Kopysynk Consulting Logo">
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="articles.html" class="active">Articles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span id="wallet-balance-header">₹0.00</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="login-button" aria-label="Login">
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section page-hero">
+            <h1 class="section-title">Mastering Agile Methodologies</h1>
+            <p class="hero-subtitle">Unlock the power of adaptive project management for successful digital transformation.</p>
+        </section>
+
+        <section class="content-section article-content">
+            <h2>Introduction</h2>
+            <p>Agile methodologies have revolutionized the way organizations manage projects, enabling teams to deliver high-quality results faster and adapt to changing requirements. This guide explores the core principles, frameworks, and implementation strategies that help you master Agile methodologies effectively.</p>
+
+            <h2>1. Understanding Agile</h2>
+            <p>Agile is an iterative approach to project management that emphasizes collaboration, customer feedback, and small, rapid releases. It breaks projects into manageable units known as sprints, ensuring flexibility and continuous improvement throughout the development cycle.</p>
+
+            <h2>2. Key Agile Frameworks</h2>
+            <ul>
+                <li><strong>Scrum:</strong> Focuses on short iterations called sprints, managed by a Scrum Master and Product Owner.</li>
+                <li><strong>Kanban:</strong> Visualizes workflow and optimizes efficiency through continuous delivery.</li>
+                <li><strong>Lean:</strong> Prioritizes value delivery while minimizing waste in processes.</li>
+            </ul>
+
+            <h2>3. Benefits of Agile Methodologies</h2>
+            <p>Adopting Agile principles empowers teams to work more efficiently, communicate better, and adapt quickly to project changes. Some of the key benefits include:</p>
+            <ul>
+                <li>Improved team collaboration and transparency</li>
+                <li>Faster delivery of features</li>
+                <li>Enhanced product quality and customer satisfaction</li>
+                <li>Reduced project risks</li>
+            </ul>
+
+            <h2>4. Implementing Agile in Your Organization</h2>
+            <p>Transitioning to Agile requires a cultural shift. Start with small pilot projects, train your teams, and embrace feedback-driven processes. Use tools like Jira, Trello, or Asana to track progress and improve sprint efficiency.</p>
+
+            <h2>5. Conclusion</h2>
+            <p>Mastering Agile methodologies isn’t just about following a framework — it’s about adopting a mindset of collaboration, adaptability, and continuous improvement. With the right strategy and team engagement, Agile can drive innovation and sustainable success in any organization.</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Kopysynk Consulting | 
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="refund-policy.html">Refund Policy</a> | 
+            <a href="digital-delivery-policy.html">Digital Delivery Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

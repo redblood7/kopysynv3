@@ -821,6 +821,21 @@ body {
     .nav-links.active {
         display: flex;
     }
+    #user-state {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        position: static; /* Reset position */
+        background-color: transparent;
+        padding: 0;
+        width: auto;
+    }
+    .user-greeting {
+        display: none; /* Hide greeting on smaller screens to save space */
+    }
+    #user-state .profile-icon {
+        font-size: 1.25rem;
+    }
     .menu-toggle {
         display: block;
     }

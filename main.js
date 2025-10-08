@@ -26,58 +26,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Firebase Authentication State Observer
-    if (typeof firebase !== 'undefined') {
-        firebase.auth().onAuthStateChanged(user => {
-            const userStateContainer = document.getElementById('user-state');
-            if (userStateContainer) {
-                if (user) {
-                    // User is signed in
-                    const dbRef = firebase.database().ref();
-                    dbRef.child('users').child(user.uid).get().then((snapshot) => {
-                        let username = 'User'; // Default username
-                        if (snapshot.exists()) {
-                            username = snapshot.val().username;
-                        }
-                        userStateContainer.innerHTML = `
-                            <li class="user-greeting"><span>Welcome, ${username}</span></li>
-                            <li><a href="#" id="logout-btn" class="profile-icon" aria-label="Logout"><i class="fas fa-user-circle"></i></a></li>
-                        `;
-                        const logoutBtn = document.getElementById('logout-btn');
-                        if(logoutBtn) {
-                            logoutBtn.addEventListener('click', (e) => {
-                                e.preventDefault();
-                                firebase.auth().signOut().then(() => {
-                                    window.location.href = 'login.html';
-                                }).catch((error) => {
-                                    console.error('Logout Error:', error);
-                                });
-                            });
-                        }
-                    }).catch((error) => {
-                        console.error(error);
-                        userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
-                    });
-                } else {
-                    // User is signed out
-                    userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
-                }
-            }
-        });
-    } else {
-        const userStateContainer = document.getElementById('user-state');
+    // User State Handling (Firebase or LocalStorage/SessionStorage)
+    const userStateContainer = document.getElementById('user-state');
+
+    function updateUserState() {
+        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
+
         if (userStateContainer) {
-            userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
+            if (loggedInUser) {
+                // User is signed in via local storage
+                userStateContainer.innerHTML = `
+                    <li class="user-greeting"><span>Welcome, ${loggedInUser.username}</span></li>
+                    <li><a href="#" id="logout-btn" class="profile-icon" aria-label="Logout"><i class="fas fa-user-circle"></i></a></li>
+                `;
+                const logoutBtn = document.getElementById('logout-btn');
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        sessionStorage.removeItem('loggedInUser'); // Clear local session
+                        window.location.href = 'login.html';
+                    });
+                }
+            } else if (typeof firebase !== 'undefined' && firebase.auth) {
+                // Fallback to Firebase if available and no local user is logged in
+                firebase.auth().onAuthStateChanged(user => {
+                    if (user) {
+                        // User is signed in via Firebase
+                        const dbRef = firebase.database().ref();
+                        dbRef.child('users').child(user.uid).get().then((snapshot) => {
+                            let username = 'User'; // Default username
+                            if (snapshot.exists()) {
+                                username = snapshot.val().username;
+                            }
+                            userStateContainer.innerHTML = `
+                                <li class="user-greeting"><span>Welcome, ${username}</span></li>
+                                <li><a href="#" id="logout-btn" class="profile-icon" aria-label="Logout"><i class="fas fa-user-circle"></i></a></li>
+                            `;
+                            const logoutBtn = document.getElementById('logout-btn');
+                            if (logoutBtn) {
+                                logoutBtn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    firebase.auth().signOut().then(() => {
+                                        window.location.href = 'login.html';
+                                    }).catch((error) => {
+                                        console.error('Logout Error:', error);
+                                    });
+                                });
+                            }
+                        }).catch((error) => {
+                            console.error(error);
+                            userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
+                        });
+                    } else {
+                        // User is signed out (Firebase)
+                        userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
+                    }
+                });
+            } else {
+                // No user logged in (neither local nor Firebase)
+                userStateContainer.innerHTML = '<li><a href="login.html" class="profile-icon" aria-label="Login"><i class="fas fa-user-circle"></i></a></li>';
+            }
         }
     }
-    
+
+    updateUserState(); // Call on page load
+
     function updateWalletBalanceHeader() {
-    const walletBalanceElement = document.getElementById('wallet-balance-header');
-    if (walletBalanceElement) {
-        let currentBalance = localStorage.getItem('walletBalance') || 0;
-        walletBalanceElement.textContent = `₹${parseFloat(currentBalance).toFixed(2)}`;
+        const walletBalanceElement = document.getElementById('wallet-balance-header');
+        if (walletBalanceElement) {
+            let currentBalance = localStorage.getItem('walletBalance') || 0;
+            walletBalanceElement.textContent = `₹${parseFloat(currentBalance).toFixed(2)}`;
+        }
     }
-}
     // Cart Functionality
     const cartContainer = document.getElementById('cart-container');
 
@@ -105,25 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-    
+
     function handleResponsiveWallet() {
-    const walletIcon = document.querySelector('.wallet-icon');
-    const walletBalanceHeader = document.getElementById('wallet-balance-header');
+        const walletIcon = document.querySelector('.wallet-icon');
+        const walletBalanceHeader = document.getElementById('wallet-balance-header');
 
-    if (window.innerWidth <= 768) {
-        walletBalanceHeader.style.display = 'none';
-    } else {
-        walletBalanceHeader.style.display = 'inline';
-    }
-
-    window.addEventListener('resize', () => {
         if (window.innerWidth <= 768) {
             walletBalanceHeader.style.display = 'none';
         } else {
             walletBalanceHeader.style.display = 'inline';
         }
-    });
-}
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                walletBalanceHeader.style.display = 'none';
+            } else {
+                walletBalanceHeader.style.display = 'inline';
+            }
+        });
+    }
 
     function addToCart(course) {
         let cart = getCart();
@@ -359,8 +379,133 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            const email = loginForm.querySelector('#loginEmail').value;
+            const password = loginForm.querySelector('#loginPassword').value;
+
+            // --- Local Storage Login Logic ---
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+            const user = storedUsers.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                console.log('User logged in locally:', user.email);
+                // Store logged-in user in sessionStorage (clears on browser close)
+                sessionStorage.setItem('loggedInUser', JSON.stringify({ email: user.email, username: user.username }));
+                window.location.href = 'login-success.html';
+            } else {
+                console.error("Login Error: Invalid credentials");
+                showError(loginForm, "Invalid email or password.");
+            }
+            // --- End Local Storage Login Logic ---
+        });
+    }
+
+    if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!validateSignupForm()) {
+                return;
+            }
+            clearErrors();
+
+            const username = signupForm.querySelector('#signupName').value;
+            const email = signupForm.querySelector('#signupEmail').value;
+            const password = signupForm.querySelector('#signupPassword').value;
+
+            // --- Local Storage Signup Logic ---
+            const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            if (storedUsers.some(u => u.email === email)) {
+                console.error("Signup Error: Email already exists");
+                showError(signupForm, "An account with this email already exists.");
+                return;
+            }
+
+            storedUsers.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(storedUsers));
+            console.log('User signed up locally:', email);
+            window.location.href = 'signup-success.html';
+            // --- End Local Storage Signup Logic ---
+        });
+    }
     
     updateCartCount();
     updateWalletBalanceHeader();
     handleResponsiveWallet();
 });
+
+function validateSignupForm() {
+    let isValid = true;
+    clearErrors(); // Clear previous errors at the start
+
+    const username = document.getElementById('signupName');
+    const email = document.getElementById('signupEmail');
+    const password = document.getElementById('signupPassword');
+    const confirmPassword = document.getElementById('confirmPassword');
+
+    if (username && username.value.trim() === '') {
+        showError(username.parentElement, 'Username cannot be empty.');
+        isValid = false;
+    }
+
+    if (email && !isValidEmail(email.value)) {
+        showError(email.parentElement, 'Please enter a valid email address.');
+        isValid = false;
+    }
+
+    if (password && password.value.length < 6) { // Firebase default is 6
+        showError(password.parentElement, 'Password must be at least 6 characters long.');
+        isValid = false;
+    }
+
+    if (confirmPassword && password.value !== confirmPassword.value) {
+        showError(confirmPassword.parentElement, 'Passwords do not match.');
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+
+function isValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function showError(inputOrForm, message) {
+    const container = inputOrForm.matches('form') ? inputOrForm : inputOrForm.parentElement;
+    
+    // Check if an error message already exists to avoid duplicates
+    if (container.querySelector('.error-message')) {
+        return;
+    }
+
+    const errorElement = document.createElement('div');
+    errorElement.className = 'error-message';
+    errorElement.style.color = '#ff6464';
+    errorElement.style.marginTop = '1rem';
+    errorElement.textContent = message;
+    container.appendChild(errorElement);
+
+    if (inputOrForm.matches('input')) {
+        inputOrForm.classList.add('error-input');
+    }
+}
+
+
+function clearErrors() {
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach(el => el.remove());
+
+    const errorInputs = document.querySelectorAll('.error-input');
+    errorInputs.forEach(el => el.classList.remove('error-input'));
+}

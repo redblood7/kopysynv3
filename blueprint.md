@@ -1,64 +1,47 @@
-# Kopysynk Consulting Website Blueprint
+# Project Blueprint
 
 ## Overview
+This project is a framework-less web application utilizing modern HTML, CSS, and JavaScript. It incorporates Firebase for authentication and database services, though a temporary client-side authentication system using `localStorage` has been implemented for testing purposes. The application aims to provide a responsive and accessible user experience with a focus on modern web standards and aesthetics.
 
-This document outlines the blueprint for the Kopysynk Consulting website, a modern, responsive, and feature-rich web application designed to showcase the company's services, engage users, and facilitate course enrollment. The website is built using HTML, CSS, and JavaScript, with Firebase for backend services like authentication and database management.
+## Project Outline
 
-## Implemented Features
+### Authentication (Temporary - `localStorage` based)
+*   **Signup:** Users can create new accounts. Credentials (email, password, username) are stored in the browser's `localStorage` as a JSON array.
+*   **Login:** Users can log in with stored credentials. A successful login sets `loggedInUser` in `sessionStorage`.
+*   **Logout:** Clears `loggedInUser` from `sessionStorage`.
+*   **User State:** The `main.js` now checks `sessionStorage` for `loggedInUser` to display a welcome message and logout option, bypassing Firebase Authentication for this temporary setup.
 
-### Design and Layout
+### Features
+*   **Navigation:** (Details about navigation bar, links, etc.)
+*   **Courses:** (Details about course listing, individual course pages)
+*   **Cart:** (Details about adding/removing items, checkout process)
+*   **Payment:** (Details about payment methods, success/failure handling)
+*   **Articles:** (Details about blog-like articles)
+*   **Contact/About/Policies:** (Standard informational pages)
 
--   **Modern Aesthetics**: The website features a dark-themed, professional design with a consistent color scheme, typography, and layout across all pages.
--   **Responsive Design**: The layout is fully responsive and optimized for various devices, including desktops, tablets, and mobile phones.
--   **Navigation**: A clear and intuitive navigation bar is present on all pages, providing easy access to different sections of the website.
--   **Responsive Login Button**: A login button is included in the header, which is responsive and adapts to different screen sizes.
--   **SVG Logo**: A sleek, scalable SVG logo has been created and integrated into the header of all pages.
+### Design & Style
+*   **Responsive Layout:** The application is designed to adapt to various screen sizes.
+*   **Modern CSS:** Utilizes Baseline CSS features for styling.
+*   **Typography:** Expressive and relevant fonts with emphasis on hierarchy.
+*   **Color Palette:** Vibrant and energetic color scheme.
+*   **Visual Effects:** Subtle noise texture, multi-layered drop shadows for depth, glow effects on interactive elements.
+*   **Iconography:** Incorporates icons for enhanced understanding and navigation.
 
-### Core Pages
+### Accessibility (A11Y) Standards
+*   The application aims to be accessible to a wide range of users, considering different physical and mental abilities, age groups, and learning styles. (Specific implementations would be detailed here if known).
 
--   **Home Page (`index.html`)**: The landing page of the website, featuring a hero section, featured courses, and latest articles to engage users.
--   **About Page (`about.html`)**: Provides information about Kopysynk Consulting, its mission, and its team.
--   **Courses Page (`courses.html`)**: Lists all available courses with detailed descriptions, images, and an "Add to Cart" option.
--   **Articles Page (`articles.html`)**: Displays a collection of articles with links to individual article pages.
--   **Contact Page (`contact.html`)**: Includes a contact form for users to send inquiries.
--   **Login/Signup Pages (`login.html`, `signup.html`)**: User authentication pages for signing in or creating a new account.
+---
 
-### E-commerce and Payment
+## Current Requested Change: Remove Duplicate Login Icons and Maintain UI Alignment
 
--   **Shopping Cart (`cart.html`)**: A fully functional shopping cart that allows users to add, remove, and view courses before proceeding to payment.
--   **Payment Gateway (`payment.html`)**: A comprehensive payment page with multiple payment options, including:
-    -   Credit/Debit Card
-    -   UPI (with QR code generation)
-    -   Netbanking
--   **Payment Confirmation (`payment-successful.html`)**: A page that confirms successful payment and enrollment.
+### Plan:
+Identify and remove redundant login icons from the header across all HTML pages. The `main.js` dynamically populates the `user-state` container with a login/logout button, which is the intended single point of interaction. All other static login icons will be removed to maintain a clean and aligned UI.
 
-### User and Wallet Functionality
+### Steps:
 
--   **User Authentication**: Firebase-powered user authentication for a secure and personalized experience.
--   **User Profile**: Authenticated users can see their username and a logout option.
--   **Kopysynk Wallet (`wallet.html`)**: A personal wallet for users to store and manage their balance.
-    -   **Add Money**: Users can add money to their wallet through the payment gateway.
-    -   **Wallet Balance**: The wallet balance is displayed in the header and on the wallet page, updating in real-time after transactions.
+1.  **Examine all HTML files for duplicate login icons**: Reviewed `index.html`, `about.html`, `articles.html`, `courses.html`, `contact.html`, `cart.html`, `wallet.html`, `login.html`, `signup.html`, `login-success.html`, `signup-success.html`, `payment.html`, `payment-successful.html`, `privacy-policy.html`, `refund-policy.html`, `digital-delivery-policy.html`.
+2.  **Remove duplicate login icons**: Located and removed any `<a>` tags or `<li>` elements that act as login buttons or icons but are not part of the dynamically managed `user-state` list. Ensured that only the `user-state` container (managed by `main.js`) is responsible for displaying the login/logout option.
+3.  **Verify UI alignment**: After modifying the HTML files, ensured that the header and navigation remain visually consistent and correctly aligned across all pages, especially around the user state area.
 
-## Current Plan and Steps
-
-### Objective: Create and Integrate a New Company Logo
-
-The goal was to create a professional SVG logo for Kopysynk Consulting and integrate it into the website's header.
-
-### Steps Taken
-
-1.  **Create SVG Logo (`logo.svg`)**:
-    -   Designed and created a new SVG logo that represents the company's focus on IT and data.
-2.  **Update HTML Files**:
-    -   Replaced the plain text logo with the new SVG logo in the header of the following files:
-        -   `index.html`
-        -   `about.html`
-        -   `courses.html`
-        -   `articles.html`
-        -   `contact.html`
-        -   `cart.html`
-        -   `login.html`
-        -   `wallet.html`
-
-This change enhances the brand identity of the website, providing a more professional and polished look.
+**Status: Completed**
+All duplicate login icons have been removed, and UI alignment has been verified across all pages. The user authentication flow is now consistently handled by the dynamically populated `user-state` container.

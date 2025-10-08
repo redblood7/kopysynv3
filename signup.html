@@ -14,7 +14,11 @@
 
     <header class="main-header">
         <nav class="navbar">
-            <div class="logo">Kopysynk Consulting</div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Kopysynk Consulting Logo">
+                </a>
+            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -23,11 +27,17 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="header-actions">
+                <a href="wallet.html" class="wallet-icon" aria-label="Kopysynk Wallet">
+                    <i class="fas fa-wallet"></i>
+                    <span id="wallet-balance-header">₹0.00</span>
+                </a>
                 <a href="cart.html" class="cart-icon" aria-label="Shopping Cart">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cart-count" class="cart-count">0</span>
                 </a>
-                <a href="login.html" class="btn btn-secondary">Login</a>
+                <ul id="user-state" class="nav-links">
+                    <!-- This will be populated by main.js -->
+                </ul>
                 <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
@@ -40,18 +50,18 @@
 
         <section class="content-section">
             <div class="auth-container">
-                <form class="auth-form" action="signup.html">
+                <form id="signupForm" class="auth-form">
                     <div class="form-group">
-                        <input type="text" name="username" placeholder="Your Name" required>
+                        <input type="text" id="signupName" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" id="signupEmail" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" placeholder="Your Password" required>
+                        <input type="password" id="signupPassword" placeholder="Your Password" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                 </form>
@@ -68,11 +78,10 @@
         </p>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="firebase-config.js"></script>
-    <script src="auth.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
